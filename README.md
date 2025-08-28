@@ -12,14 +12,9 @@
    
    ```nginx
    location / {
-       try_files $uri $uri/ /public/index.php?$query_string;
+       try_files $uri /index.php?$query_string;
    }
-   location ~ \.php$ {
-       include fastcgi_params;
-       fastcgi_pass  unix:/tmp/php-cgi.sock;  # 按你的 PHP-FPM 配置填写
-       fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-       fastcgi_param PATH_INFO $fastcgi_path_info;
-   }
+   
    ```
 4. 访问站点首页，会自动进入 `/install` 安装引导。按提示完成数据库与站点初始化（可选：一键导入 Typecho 数据）。
 
