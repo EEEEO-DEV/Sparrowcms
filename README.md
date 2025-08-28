@@ -2,7 +2,6 @@
 
 - 运行环境：**PHP 8.0+**，**MySQL/MariaDB 10.0+**（或 SQLite），**Nginx 任意版本**（兼容宝塔面板）。
 - 生态特性：主题（Twig + Typecho 兼容 PHP 模板）、插件（Sparrow/Typecho 双风格）、插件市场（JSON 索引 + SHA256 校验）、Typecho 数据导入（含附件记录）、固定链接规则。
-- 内容功能：分页、上一篇/下一篇、归档页、独立页面（page）。
 
 ## 快速开始（宝塔/Nginx）
 
@@ -46,11 +45,6 @@
   {"packages":[{"name":"HelloFooter","version":"1.0.0","zip_url":"https://.../HelloFooter.zip","sha256":"<hex>"}]}
   ```
 - 后台「插件市场」填入索引 URL，输入包名安装。安装过程会校验 `sha256`，解压到 `plugins/`。
-
-## Typecho 导入
-
-- 安装向导或后台工具可从 Typecho MySQL 导入：用户/文章/页面/分类/标签/评论/附件记录（附件文件路径保留）。
-- 缩略图：本项目提供附件记录表，可在主题或插件侧根据 `attachments` 生成缩略图（GD/Imagick）。
 
 ## 开发说明
 
