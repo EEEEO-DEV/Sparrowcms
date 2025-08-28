@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <h1>控制台</h1>
+  <p>文章数量：{{ count }}</p>
+  <a class="btn" href="/admin/posts/new">发布新文章</a>
+  <a class="btn" href="/admin/plugins">插件管理</a>
+  <a class="btn" href="/admin/plugins/market">插件市场</a>
+  <a class="btn" href="/admin/themes/customize">主题定制</a>
+{% endblock %}

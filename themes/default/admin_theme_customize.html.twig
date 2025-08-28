@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <h1>主题定制：{{ theme }}</h1>
+  <form class="stack" method="post" action="/admin/themes/customize">
+    <input type="hidden" name="_token" value="{{ csrf_token }}">
+    {% for field in fields %}
+      <label><strong>{{ field.label }}</strong></label>
+      {% if field.type == 'text' %}
+        <input class="input" type="text" name="{{ field.key }}" value="{{ values[field.key]|default(field.default|default('')) }}">
+      {% elseif field.type == 'textarea' %}
+        <textarea class="input" name="{{ field.key }}" rows="4">{{ values[field.key]|default(field.default|default('')) }}</textarea>
+      {% elseif field.type == 'select' %}
+        <select class="input" name="{{ field.key }}">
+          {% for opt in field.options %}
+            <option value="{{ opt.value }}" {% if (values[field.key]|default(field.default|default(''))) == opt.value %}selected{% endif %}>{{ opt.label }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+      {% if field.help %}<div class="muted">{{ field.help }}</div>{% endif %}
+    {% endfor %}
+    <button class="btn" type="submit">保存</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <article>
+    <h1>{{ page.title }}</h1>
+    <div class="muted">{{ page.created_at }}</div>
+    <div style="margin-top:12px">{{ page.content|raw }}</div>
+  </article>
+{% endblock %}

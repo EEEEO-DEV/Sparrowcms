@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <h1>归档</h1>
+  {% for ym, items in groups %}
+    <h3>{{ ym }}</h3>
+    <ul>
+      {% for it in items %}
+        <li><a href="{{ it.url }}">{{ it.title }}</a> <span class="muted">({{ it.created_at }})</span></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% endblock %}

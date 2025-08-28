@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <h1>插件市场</h1>
+  <form class="stack" method="post" action="/admin/plugins/market/install">
+    <label>市场索引 URL（JSON）</label>
+    <input class="input" type="text" name="index_url" value="{{ default_index }}">
+    <label>选择插件包名（见索引）</label>
+    <input class="input" type="text" name="package" placeholder="例如 HelloFooter">
+    <button class="btn" type="submit">安装</button>
+  </form>
+  <p class="muted">索引必须包含 packages 数组，元素格式：{"name","version","zip_url","sha256"}</p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  {% for p in posts %}
+    <article>
+      <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
+      <div class="muted">{{ p.created_at }}</div>
+      <p>{{ p.content|striptags|slice(0,200) }}...</p>
+      <a class="btn" href="{{ p.url }}">阅读全文</a>
+    </article>
+  {% else %}
+    <p>还没有文章。</p>
+  {% endfor %}
+  <div class="pager">
+    {% if page > 1 %}<a class="btn" href="/?page={{ page-1 }}">上一页</a>{% endif %}
+    {% if page < pages %}<a class="btn" href="/?page={{ page+1 }}">下一页</a>{% endif %}
+    <span class="muted">第 {{ page }} / {{ pages }} 页</span>
+  </div>
+{% endblock %}

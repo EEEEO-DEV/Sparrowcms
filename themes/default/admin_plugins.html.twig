@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <h1>插件管理</h1>
+  <table border="0" cellpadding="8" cellspacing="0">
+    <tr><th align="left">插件</th><th>状态</th><th>操作</th></tr>
+    {% for p in plugins %}
+      <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.enabled ? '已启用' : '未启用' }}</td>
+        <td>
+          <a class="btn" href="/admin/plugins/toggle?name={{ p.name }}">{{ p.enabled ? '停用' : '启用' }}</a>
+          {% if p.configurable %}<a class="btn" href="/admin/plugins/config?name={{ p.name }}">配置</a>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

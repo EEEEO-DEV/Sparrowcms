@@ -1,0 +1,11 @@
+{
+  "name": "Sparrow Demo Market",
+  "packages": [
+    {
+      "name": "HelloFooter",
+      "version": "1.0.0",
+      "zip_url": "/market/packages/HelloFooter.zip",
+      "sha256": "b9b6cefe35885ace25eb719228eb2e910810a0f103cf0301bb595f54c9b8fe2c"
+    }
+  ]
+}

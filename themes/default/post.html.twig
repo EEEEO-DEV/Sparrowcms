@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block content %}
+  <article>
+    <h1>{{ post.title }}</h1>
+    <div class="muted">{{ post.created_at }}</div>
+    <div style="margin-top:12px">{{ post.content|raw }}</div>
+  </article>
+
+  {% if prev or next %}
+  <div class="pager">
+    {% if prev %}<a class="btn" href="{{ prev.url }}">← 上一篇：{{ prev.title }}</a>{% endif %}
+    {% if next %}<a class="btn" href="{{ next.url }}">下一篇：{{ next.title }} →</a>{% endif %}
+  </div>
+  {% endif %}
+
+  <section id="comments" style="margin-top:24px">
+    <h3>评论</h3>
+    {% for c in comments %}
+      <article><div class="muted">{{ c.author }} • {{ c.created_at }}</div><div>{{ c.content }}</div></article>
+    {% else %}<p>暂无评论。</p>{% endfor %}
+  </section>
+
+  <section style="margin-top: 16px;">
+    <h3>发表评论</h3>
+    <form class="stack" action="/comment" method="post">
+      <input type="hidden" name="_token" value="{{ csrf_token }}">
+      <input type="hidden" name="post_id" value="{{ post.id }}">
+      <p><input class="input" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px" type="text" name="author" placeholder="昵称" required></p>
+      <p><input class="input" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px" type="email" name="email" placeholder="邮箱（可选）"></p>
+      <p><textarea class="input" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px" name="content" rows="4" placeholder="评论内容" required></textarea></p>
+      <p><button class="btn" type="submit">提交评论</button></p>
+    </form>
+  </section>
+{% endblock %}

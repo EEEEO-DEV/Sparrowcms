@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site_name|default('SparrowCMS') }}</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,PingFang SC,Microsoft YaHei,Noto Sans CJK,sans-serif;background:#fafafa;margin:0;color:#222}
+header{background:#111;color:#fff;padding:24px}
+header a{color:#fff;text-decoration:none}
+main{max-width:960px;margin:0 auto;padding:24px}
+article{background:#fff;border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.muted{color:#666;font-size:13px}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid #333;text-decoration:none}
+.pager a{margin-right:8px}
+</style>
+</head>
+<body>
+<header>
+  <a href="/"><strong>{{ site_name|default('SparrowCMS') }}</strong></a>
+  — <a href="/archives" style="color:#ccc">归档</a>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer style="text-align:center;color:#777;padding:24px">Powered by SparrowCMS</footer>
+</body>
+</html>
